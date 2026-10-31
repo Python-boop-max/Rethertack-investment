@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rethertack (RetherTach) — Official Investment, Donation & Strategic Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Hind Siliguri & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tesseract.js for OCR Image to Data Extraction -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <!-- html2pdf.js for Automatic Official PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Hind Siliguri', 'sans-serif'],
+                        bangla: ['Hind Siliguri', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#050811',
+                            navy: '#0B1325',
+                            primary: '#0EA5E9',
+                            accent: '#38BDF8',
+                            gold: '#F59E0B',
+                            emerald: '#10B981'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050811;
+            color: #F1F5F9;
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(56, 189, 248, 0.16);
+        }
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.45);
+            box-shadow: 0 12px 40px -10px rgba(14, 165, 233, 0.25);
+        }
+        .hero-mesh {
+            background-image: 
+                radial-gradient(at 15% 15%, rgba(14, 165, 233, 0.18) 0px, transparent 50%),
+                radial-gradient(at 85% 20%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 80%, rgba(16, 185, 129, 0.10) 0px, transparent 50%);
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.6); }
+            50% { box-shadow: 0 0 25px 6px rgba(14, 165, 233, 0.35); }
+        }
+        .glow-btn {
+            animation: pulseGlow 3s infinite;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050811; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0EA5E9; }
+
+        /* Print / PDF Document Styling */
+        #provisionalDocument {
+            background: #ffffff;
+            color: #0f172a;
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+        }
+    </style>
+</head>
+<body class="hero-mesh min-h-screen selection:bg-sky-500 selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-sky-950 via-slate-900 to-sky-950 border-b border-sky-500/20 py-2 px-4 text-xs md:text-sm">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-sky-300 font-semibold">RETHERTACK SEED & R&D CAPITAL PORTAL:</span>
+                <span class="text-slate-300">ডোনেশন ও প্রোডাক্ট-ভিত্তিক ইনভেস্টমেন্ট প্রাক-যাচাই কার্যক্রম চলমান।</span>
+            </div>
+            <div class="flex items-center gap-4 text-slate-400">
+                <span><i class="fa-solid fa-user-shield text-sky-400 mr-1"></i>Founder: <strong class="text-white">Md Eyasin</strong></span>
+                <span><i class="fa-solid fa-earth-americas text-emerald-400 mr-1"></i>Bangladesh & Global</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- STICKY NAVBAR -->
+    <header class="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shadow-lg shadow-sky-500/10 overflow-hidden">
+                    <img id="navLogoImg" src="1268.jpg" alt="RetherTach Logo" class="w-full h-full object-contain" onerror="this.style.display='none'; document.getElementById('navLogoFallback').style.display='flex';">
+                    <div id="navLogoFallback" class="hidden w-full h-full bg-slate-900 text-sky-400 font-extrabold text-lg items-center justify-center rounded-lg">RT</div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl md:text-2xl font-extrabold tracking-tight text-white">RETHER<span class="text-sky-400">TACK</span></span>
+                        <span class="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-sky-500/15 text-sky-300 border border-sky-500/30 font-semibold">RetherTach</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 tracking-wider uppercase">Connecting Technology • Research • AI</p>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="#overview" class="hover:text-sky-400 transition">কোম্পানি পরিচিতি</a>
+                <a href="#founder" class="hover:text-sky-400 transition">ফাউন্ডার</a>
+                <a href="#divisions" class="hover:text-sky-400 transition">৯টি ডিভিশন</a>
+                <a href="#investment-model" class="hover:text-sky-400 transition">ইনভেস্টমেন্ট মডেল</a>
+                <a href="#payment-vault" class="hover:text-sky-400 transition">পেমেন্ট একাউন্ট</a>
+                <a href="#document-preview" class="hover:text-sky-400 transition">ডকুমেন্ট ও ভেরিফিকেশন</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-3">
+                <button onclick="openChatbotModal()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-sky-500/25 flex items-center gap-2 transition glow-btn">
+                    <i class="fa-solid fa-robot"></i>
+                    <span>পেমেন্ট ও চ্যাটবট</span>
+                </button>
+
+                <button onclick="toggleAdminModal()" class="relative px-3.5 py-2.5 rounded-xl glass-card text-slate-200 hover:text-white text-xs sm:text-sm font-semibold flex items-center gap-2 transition" title="Founder Admin & OCR Panel">
+                    <i class="fa-solid fa-user-lock text-amber-400"></i>
+                    <span class="hidden sm:inline">Admin OCR</span>
+                    <span id="adminNotifBadge" class="px-1.5 py-0.5 text-[10px] rounded-full bg-rose-500 text-white font-bold">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Column: Vision & CTA -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-300 text-xs font-semibold">
+                        <i class="fa-solid fa-microchip"></i>
+                        <span>BUILDING TECHNOLOGY • CREATING OPPORTUNITIES • DEVELOPING THE FUTURE</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        ভবিষ্যতের প্রযুক্তি ও <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400">গ্লোবাল ইনোভেশনে</span> আমাদের সঙ্গী হোন
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        <strong>Rethertack (RetherTach)</strong> একটি আধুনিক প্রযুক্তি, Artificial Intelligence, Software Engineering, Research & Development এবং গ্লোবাল ই-কমার্স কোম্পানি। আমাদের কোম্পানি গঠনের প্রাথমিক পর্যায়ে আপনি <strong>ডোনার (Donor)</strong> অথবা <strong>প্রোডাক্ট-ভিত্তিক ইনভেস্টর (Investor)</strong> হিসেবে যুক্ত হতে পারেন।
+                    </p>
+
+                    <!-- Step-by-Step Quick Flow Pills -->
+                    <div class="grid sm:grid-cols-3 gap-3 pt-2">
+                        <div class="glass-card p-3.5 rounded-xl border-l-4 border-l-sky-400">
+                            <div class="text-xs text-sky-400 font-bold uppercase">ধাপ ১ • চ্যাটবট ও পেমেন্ট</div>
+                            <p class="text-xs text-slate-300 mt-1">চ্যাটবটের সাথে কথা বলে বিকাশ/নগদ/ব্যাংক নাম্বার নিন ও পেমেন্ট করুন।</p>
+                        </div>
+                        <div class="glass-card p-3.5 rounded-xl border-l-4 border-l-amber-400">
+                            <div class="text-xs text-amber-400 font-bold uppercase">ধাপ ২ • OCR ভেরিফিকেশন</div>
+                            <p class="text-xs text-slate-300 mt-1">ফাউন্ডার স্ক্রিনশট আপলোড করলে ছবি থেকে অটোমেটিক ডাটা স্ক্যান হবে।</p>
+                        </div>
+                        <div class="glass-card p-3.5 rounded-xl border-l-4 border-l-emerald-400">
+                            <div class="text-xs text-emerald-400 font-bold uppercase">ধাপ ৩ • ডকুমেন্ট ও মিটিং</div>
+                            <p class="text-xs text-slate-300 mt-1">সরাসরি মিটিংয়ের সময়সহ অফিশিয়াল পিডিএফ আপনার ইমেইল ও হোয়াটসঅ্যাপে যাবে।</p>
+                        </div>
+                    </div>
+
+                    <!-- Primary Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <button onclick="openChatbotModal()" class="px-6 py-4 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-base shadow-xl shadow-sky-500/25 flex items-center gap-3 transition transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-comments-dollar text-xl"></i>
+                            <span>ডোনেট বা ইনভেস্ট করতে চ্যাট করুন</span>
+                        </button>
+                        <a href="#payment-vault" class="px-6 py-4 rounded-2xl glass-card hover:bg-slate-800/80 text-white font-semibold text-base flex items-center gap-2 transition">
+                            <i class="fa-solid fa-building-columns text-sky-400"></i>
+                            <span>সকল পেমেন্ট নাম্বার দেখুন</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Brand & Founder Executive Card -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card rounded-3xl p-6 sm:p-8 relative border border-sky-500/30 shadow-2xl">
+                        <div class="absolute -top-3 right-6 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-check"></i> Verified Founder Portal
+                        </div>
+
+                        <!-- Company Logo Showcase -->
+                        <div class="bg-white rounded-2xl p-5 mb-6 flex flex-col items-center justify-center shadow-inner">
+                            <img id="heroLogoImg" src="1268.jpg" alt="RetherTach Logo" class="max-h-24 object-contain" onerror="this.style.display='none'; document.getElementById('heroLogoFallback').style.display='block';">
+                            <div id="heroLogoFallback" class="hidden text-center py-2">
+                                <div class="text-3xl font-black tracking-tight text-slate-900">RetherTach</div>
+                                <div class="text-xs tracking-[0.25em] text-slate-600 uppercase font-semibold mt-1">Connecting Technology</div>
+                            </div>
+                        </div>
+
+                        <!-- Founder Mini Showcase -->
+                        <div class="flex items-center gap-4 bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
+                            <img id="heroFounderImg" src="1266.jpg" alt="Md Eyasin - Founder" class="w-20 h-24 rounded-xl object-cover object-top border-2 border-sky-400 shrink-0" onerror="this.src='https://ui-avatars.com/api/?name=Md+Eyasin&background=0EA5E9&color=fff&size=200'">
+                            <div>
+                                <div class="text-xs uppercase tracking-wider text-sky-400 font-bold">Founder & Owner</div>
+                                <h3 class="text-xl font-extrabold text-white">Md Eyasin</h3>
+                                <p class="text-xs text-slate-300 mt-1">Centralized Strategic & Operational Control • Rethertack</p>
+                                <div class="flex items-center gap-2 mt-2.5">
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-sky-500/15 text-sky-300 border border-sky-500/30">AI & SaaS</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">R&D Lab</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-amber-500/15 text-amber-300 border border-amber-500/30">Global Commerce</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Important Conditional Notice -->
+                        <div class="mt-5 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200 leading-relaxed">
+                            <div class="font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-triangle-exclamation"></i> গুরুত্বপূর্ণ শর্তসাপেক্ষ নীতিমালা:
+                            </div>
+                            অনলাইনে পেমেন্ট করার সাথে সাথেই আপনার ডোনেশন বা ইনভেস্টমেন্ট চূড়ান্তভাবে গৃহীত বলে গণ্য হবে না। পেমেন্ট ভেরিফিকেশনের পর আপনাকে একটি <strong>প্রভিশনাল ডকুমেন্ট ও মিটিংয়ের সময়</strong> দেওয়া হবে। সরাসরি মিটিংয়ে আলোচনার পর চূড়ান্ত সিদ্ধান্ত গৃহীত হবে।
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDER & EXECUTIVE PROFILE SECTION -->
+    <section id="founder" class="py-16 lg:py-24 border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <!-- Founder Dual Portrait Gallery -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <div class="glass-card p-2.5 rounded-2xl">
+                        <img id="founderImg1" src="1266.jpg" alt="Md Eyasin Executive Portrait" class="w-full h-72 sm:h-80 object-cover object-top rounded-xl" onerror="this.src='https://ui-avatars.com/api/?name=Md+Eyasin&background=0D8ABC&color=fff&size=400'">
+                        <div class="pt-2.5 px-1 flex items-center justify-between text-xs">
+                            <span class="font-bold text-white">Md Eyasin</span>
+                            <span class="text-sky-400">Executive View</span>
+                        </div>
+                    </div>
+                    <div class="glass-card p-2.5 rounded-2xl mt-6">
+                        <img id="founderImg2" src="1267.jpg" alt="Md Eyasin Campus Portrait" class="w-full h-72 sm:h-80 object-cover object-top rounded-xl" onerror="this.src='https://ui-avatars.com/api/?name=Md+Eyasin&background=10B981&color=fff&size=400'">
+                        <div class="pt-2.5 px-1 flex items-center justify-between text-xs">
+                            <span class="font-bold text-white">Founder & Owner</span>
+                            <span class="text-emerald-400">Visionary Lead</span>
+                        </div>
+                    </div>
+                    <!-- Local Image Loader Helper (In case files have different names locally) -->
+                    <div class="col-span-2 glass-card p-3 rounded-xl flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+                        <span><i class="fa-solid fa-image text-sky-400 mr-1"></i> গিটহাবে `1268.jpg`, `1266.jpg`, `1267.jpg` নামে রাখলে অটো লোড হবে, অথবা প্রিভিউ টেস্ট করুন:</span>
+                        <div class="flex gap-2">
+                            <label class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-sky-300 cursor-pointer border border-slate-700">
+                                লোগো সেট <input type="file" accept="image/*" class="hidden" onchange="previewCustomBrandImage(event, 'logo')">
+                            </label>
+                            <label class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-emerald-300 cursor-pointer border border-slate-700">
+                                ছবি ১ <input type="file" accept="image/*" class="hidden" onchange="previewCustomBrandImage(event, 'f1')">
+                            </label>
+                            <label class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 cursor-pointer border border-slate-700">
+                                ছবি ২ <input type="file" accept="image/*" class="hidden" onchange="previewCustomBrandImage(event, 'f2')">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Overview & Mission -->
+                <div id="overview" class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">
+                        <span>COMPANY MASTER PROFILE & STRATEGIC ROADMAP</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white">
+                        Rethertack — গবেষণা থেকে বিশ্ববাজারে প্রযুক্তি ও পণ্যের সমন্বিত ইকোসিস্টেম
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        <strong>Rethertack</strong> শুধু একটি সাধারণ সফটওয়্যার বা ই-কমার্স স্টোর নয়; এর লক্ষ্য হলো এমন একটি দীর্ঘমেয়াদি ব্যবসায়িক কাঠামো তৈরি করা, যার অধীনে একাধিক নিজস্ব ব্র্যান্ড, AI Systems, SaaS Platforms, Cybersecurity Tools, Operating System Utilities এবং ফিজিক্যাল টেকনোলজি পণ্য পরিচালনা করা হবে।
+                    </p>
+
+                    <!-- 9 Core Mission Points Grid -->
+                    <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+                            <i class="fa-solid fa-brain text-sky-400 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">নিজস্ব AI ও সফটওয়্যার</h4>
+                                <p class="text-xs text-slate-400">AI Assistant, RAG, Automation ও SaaS প্ল্যাটফর্ম তৈরি।</p>
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+                            <i class="fa-solid fa-flask text-emerald-400 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">১৪-ধাপের R&D প্রসেস</h4>
+                                <p class="text-xs text-slate-400">Problem Identification থেকে MVP ও Global Launch পর্যন্ত যাচাইকৃত গবেষণা।</p>
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+                            <i class="fa-solid fa-shield-halved text-amber-400 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">কেন্দ্রীয় নিয়ন্ত্রণ ও নিরাপত্তা</h4>
+                                <p class="text-xs text-slate-400">Founder-led কন্ট্রোল এবং RBAC ও আইসোলেটেড অ্যাডমিন আর্কিটেকচার।</p>
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+                            <i class="fa-solid fa-globe text-purple-400 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">১৭টি সম্ভাব্য আয়ের উৎস</h4>
+                                <p class="text-xs text-slate-400">SaaS, AI API, Digital Templates, Smart Hardware ও Enterprise License।</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Launch Timeline Bar -->
+                    <div class="glass-card p-5 rounded-2xl">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-3">Launch & Development Roadmap (2027 – 2028+)</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                            <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+                                <div class="text-sky-400 font-bold">Phase 1 (Apr–Sep 2027)</div>
+                                <div class="text-slate-300 mt-1">Foundation, R&D, প্রথম MVP ও ইনভেস্টমেন্ট ডকুমেন্টেশন</div>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+                                <div class="text-emerald-400 font-bold">Phase 2 (Oct 2027)</div>
+                                <div class="text-slate-300 mt-1">Official Launch, গ্লোবাল মার্কেটিং ও প্রথম প্রোডাক্ট রিলিজ</div>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+                                <div class="text-amber-400 font-bold">Phase 3 (Nov 27–Mar 28)</div>
+                                <div class="text-slate-300 mt-1">Expansion, রেভিনিউ অপ্টিমাইজেশন ও নতুন প্রোডাক্ট লাইন</div>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+                                <div class="text-purple-400 font-bold">Phase 4 (2028 & Beyond)</div>
+                                <div class="text-slate-300 mt-1">একাধিক স্বাধীন ব্র্যান্ড, AI/SaaS ও গ্লোবাল ডিস্ট্রিবিউশন</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9 BUSINESS DIVISIONS SECTION -->
+    <section id="divisions" class="py-16 lg:py-24 border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30">CORE ARCHITECTURE</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Rethertack-এর ৯টি প্রধান Business Divisions</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-2">আপনার ডোনেশন বা প্রোডাক্ট-ভিত্তিক বিনিয়োগ নিচের যেকোনো নির্দিষ্ট বিভাগ বা পণ্যের উন্নয়নে ব্যবহৃত হতে পারে।</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Division 01 -->
+                <div class="glass-card rounded-2xl p-6 transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-sky-500/15 text-sky-400 text-xs font-bold">Division 01</span>
+                        <i class="fa-solid fa-robot text-2xl text-sky-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Artificial Intelligence & AI Research</h3>
+                    <p class="text-xs text-slate-400 mt-2">AI Chatbot, Autonomous Agents, RAG, Multimodal AI এবং Document Intelligence গবেষণা।</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <strong class="text-sky-300">সম্ভাব্য পণ্য:</strong> Personal/Business AI Assistant, AI Website Builder, AI Coding Workspace, AI API Platform.
+                    </div>
+                </div>
+
+                <!-- Division 02 -->
+                <div class="glass-card rounded-2xl p-6 transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-blue-500/15 text-blue-400 text-xs font-bold">Division 02</span>
+                        <i class="fa-solid fa-code text-2xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Software Engineering & SaaS</h3>
+                    <p class="text-xs text-slate-400 mt-2">Multi-tenant SaaS, Enterprise ERP/CRM, E-commerce Software এবং Cloud Database Architecture।</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <strong class="text-blue-300">সম্ভাব্য পণ্য:</strong> Business Management SaaS, E-commerce Platform, Inventory ও Booking System.
+                    </div>
+                </div>
+
+                <!-- Division 03 -->
+                <div class="glass-card rounded-2xl p-6 transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 text-xs font-bold">Division 03</span>
+                        <i class="fa-solid fa-shield-virus text-2xl text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Cybersecurity & Infrastructure</h3>
+                    <p class="text-xs text-slate-400 mt-2">Zero Trust Architecture, Application/Cloud Security, Isolated Lab Analysis ও Disaster Recovery।</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <strong class="text-emerald-300">সম্ভাব্য পণ্য:</strong> Security Monitoring Dashboard, Defensive Security Toolkit, Access Management.
+                    </div>
+                </div>
+
+                <!-- Division 04 -->
+                <div class="glass-card rounded-2xl p-6 transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-400 text-xs font-bold">Division 04</span>
+                        <i class="fa-solid fa-gauge-high text-2xl text-amber-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">OS & System Optimization</h3>
+                    <p class="text-xs text-slate-400 mt-2">Windows Optimization, Linux System Research, Lightweight OS ও Driver/Hardware Compatibility।</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <strong class="text-amber-300">সম্ভাব্য পণ্য:</strong> PC Optimization Software, System Diagnostic Toolkit, Portable Dev Environment.
+                    </div>
+                </div>
+
+                <!-- Division 05 -->
+                <div class="glass-card rounded-2xl p-6 transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-purple-500/15 text-purple-400 text-xs font-bold">Division 05</span>
+                        <i class="fa-solid fa-microscope text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Product R&D Lab</h3>
+                    <p class="text-xs text-slate-400 mt-2">Market Research, Prototype Engineering, Quality Assurance ও Manufacturing Feasibility যাচাই।</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <strong class="text-purple-300">গবেষণা ক্ষেত্র:</strong> Smart Devices, IoT Products, Smart Home Tech, AI-powered Hardware.
+                    </div>
+                </div>
+
+                <!-- Division 06 -->
+                <div class="glass-card rounded-2xl p-6 transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-pink-500/15 text-pink-400 text-xs font-bold">Division 06</span>
+                        <i class="fa-solid fa-layer-group text-2xl text-pink-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Digital Products & Marketplace</h3>
+                    <p class="text-xs text-slate-400 mt-2">নিজস্ব এবং যাচাইকৃত ডিজিটাল অ্যাসেট, ডেভেলপার টুলস ও কমার্শিয়াল টেমপ্লেট মার্কেটপ্লেস।</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <strong class="text-pink-300">সম্ভাব্য পণ্য:</strong> Website Templates, UI Kits, Automation Scripts, Plugins, SaaS Licenses.
+                    </div>
+                </div>
+
+                <!-- Division 07 -->
+                <div class="glass-card rounded-2xl p-6 transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-cyan-500/15 text-cyan-400 text-xs font-bold">Division 07</span>
+                        <i class="fa-solid fa-boxes-stacked text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">E-commerce & Physical Products</h3>
+                    <p class="text-xs text-slate-400 mt-2">নিজস্ব ব্র্যান্ড ও নির্বাচিত সাপ্লাইয়ারের মাধ্যমে হাই-ডিমান্ড ফিজিক্যাল টেক ও লাইফস্টাইল পণ্য।</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <strong class="text-cyan-300">ক্যাটাগরি:</strong> Computer Accessories, Smart Lighting/Sensors, Desk Setup & Utility Products.
+                    </div>
+                </div>
+
+                <!-- Division 08 -->
+                <div class="glass-card rounded-2xl p-6 transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-indigo-500/15 text-indigo-400 text-xs font-bold">Division 08</span>
+                        <i class="fa-solid fa-handshake-angle text-2xl text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Technology Services & Consulting</h3>
+                    <p class="text-xs text-slate-400 mt-2">নির্বাচিত দেশি ও আন্তর্জাতিক প্রতিষ্ঠানের জন্য কাস্টম সফটওয়্যার ও ক্লাউড কনসাল্টিং সেবা।</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <strong class="text-indigo-300">সেবাসমূহ:</strong> Custom SaaS, AI Integration, Business Automation, Enterprise Dashboards.
+                    </div>
+                </div>
+
+                <!-- Division 09 -->
+                <div class="glass-card rounded-2xl p-6 transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-rose-500/15 text-rose-400 text-xs font-bold">Division 09</span>
+                        <i class="fa-solid fa-satellite-dish text-2xl text-rose-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Future Tech & Deep Innovation</h3>
+                    <p class="text-xs text-slate-400 mt-2">দীর্ঘমেয়াদি প্রযুক্তিগত গবেষণা যা ভবিষ্যতে নতুন লাইসেন্সিং ও ডিপ-টেক ভেঞ্চার তৈরি করবে।</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <strong class="text-rose-300">গবেষণা ক্ষেত্র:</strong> Robotics, Edge Computing, Distributed Systems, Next-gen HCI.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INVESTMENT MODEL VS DONATION STRUCTURE -->
+    <section id="investment-model" class="py-16 lg:py-24 border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Product-Based Profit Participation Card -->
+                <div class="glass-card rounded-3xl p-7 sm:p-9 border-t-4 border-t-sky-400">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/15 text-sky-300 text-xs font-bold">
+                        <i class="fa-solid fa-chart-pie"></i> OPTION 01: FOR INVESTORS
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-white mt-3">Product-based Profit Participation Model</h3>
+                    <p class="text-slate-300 text-sm mt-2">
+                        Rethertack-এর বিনিয়োগ মডেলটি সম্পূর্ণ স্বচ্ছ এবং নির্দিষ্ট প্রোডাক্ট বা প্রজেক্টের লভ্যাংশ বণ্টনভিত্তিক:
+                    </p>
+                    <ul class="space-y-3 mt-5 text-sm text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-sky-400 mt-1"></i>
+                            <span><strong>নির্দিষ্ট প্রজেক্টে মূলধন:</strong> বিনিয়োগকারী নির্দিষ্ট কোনো পণ্য বা সফটওয়্যার প্রজেক্টে মূলধন প্রদান করতে পারবেন।</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-sky-400 mt-1"></i>
+                            <span><strong>মালিকানা ও নিয়ন্ত্রণ:</strong> বিনিয়োগকারী কোম্পানির মালিকানা (Equity) বা ব্যবস্থাপনার কোনো পদ গ্রহণ করবেন না; কোম্পানির সম্পূর্ণ নিয়ন্ত্রণ ফাউন্ডার <strong>Md Eyasin</strong>-এর অধীনে থাকবে।</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-sky-400 mt-1"></i>
+                            <span><strong>চুক্তিভিত্তিক লভ্যাংশ:</strong> লিখিত চুক্তি অনুযায়ী বিনিয়োগকারী সংশ্লিষ্ট পণ্যের নির্ধারিত লাভের একটি অংশ পাবেন।</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-sky-400 mt-1"></i>
+                            <span><strong>সরাসরি মিটিংয়ের পর চূড়ান্তকরণ:</strong> অনলাইনে টাকা পাঠানোর পর সরাসরি মিটিংয়ে বসে লাভের হার, মেয়াদ ও শর্তাবলী লিখিতভাবে চূড়ান্ত করা হবে।</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- R&D Donation & Support Model Card -->
+                <div class="glass-card rounded-3xl p-7 sm:p-9 border-t-4 border-t-emerald-400">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold">
+                        <i class="fa-solid fa-hand-holding-heart"></i> OPTION 02: FOR DONORS & SUPPORTERS
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-white mt-3">R&D Innovation Grant & Donation</h3>
+                    <p class="text-slate-300 text-sm mt-2">
+                        যারা বাংলাদেশের তরুণ প্রযুক্তি গবেষণা, AI উদ্ভাবন এবং নতুন স্টার্টআপ ল্যাব গড়ে তোলায় নিঃস্বার্থভাবে সহযোগিতা করতে চান:
+                    </p>
+                    <ul class="space-y-3 mt-5 text-sm text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span><strong>সরাসরি ল্যাব ও হার্ডওয়্যার উন্নয়ন:</strong> আপনার ডোনেশন সার্ভার, AI API, হার্ডওয়্যার প্রোটোটাইপ ও গবেষণার কাজে ব্যয় হবে।</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span><strong>ভেরিফায়েড ডোনার সার্টিফিকেট:</strong> প্রতিটি ডোনারকে তার ছবি, তথ্য ও ট্রানজেকশন আইডিসহ অফিশিয়াল ডকুমেন্ট প্রদান করা হবে।</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span><strong>মিটিংয়ে রূপান্তর সুবিধা:</strong> আপনি প্রাথমিকভাবে টাকা পাঠানোর পর সরাসরি মিটিংয়ে এসে চাইলে সেটি ডোনেশন হিসেবে রাখতে পারেন অথবা শর্তসাপেক্ষে ইনভেস্টমেন্টে রূপান্তর করার বিষয়েও আলোচনা করতে পারেন।</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT ACCOUNT VAULT SECTION -->
+    <section id="payment-vault" class="py-16 lg:py-24 border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-amber-400 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30">OFFICIAL PAYMENT CHANNELS</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">অফিশিয়াল পেমেন্ট একাউন্ট নাম্বারসমূহ</h2>
+                    <p class="text-slate-400 text-sm mt-1">যেকোনো মাধ্যমে পেমেন্ট করার পর চ্যাটবটে গিয়ে আপনার তথ্য দিন, অথবা চ্যাটবট থেকেই সরাসরি নাম্বারগুলো সংগ্রহ করুন।</p>
+                </div>
+                <button onclick="openChatbotModal()" class="px-5 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm flex items-center gap-2 self-start md:self-auto transition">
+                    <i class="fa-solid fa-robot"></i> চ্যাটবট দিয়ে পেমেন্ট কনফার্ম করুন
+                </button>
+            </div>
+
+            <!-- Payment Account Cards Grid (Customizable from Admin Panel too) -->
+            <div id="paymentAccountsContainer" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Rendered dynamically by JS so Founder can update numbers anytime -->
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE PROVISIONAL DOCUMENT PREVIEW & GENERATOR SECTION -->
+    <section id="document-preview" class="py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30">AUTOMATED PROVISIONAL CERTIFICATE</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">অফিশিয়াল প্রভিশনাল ডকুমেন্ট ও ভেরিফিকেশন শিট</h2>
+                <p class="text-slate-400 text-sm mt-2">
+                    চ্যাটবটের তথ্য এবং ফাউন্ডারের আপলোড করা পেমেন্ট স্ক্রিনশট (OCR) থেকে স্বয়ংক্রিয়ভাবে নিচের ডকুমেন্টটি তৈরি হবে এবং এক কপি ফাউন্ডারের জিমেইলে ও এক কপি ডোনার/ইনভেস্টরের ইমেইল ও হোয়াটসঅ্যাপে চলে যাবে।
+                </p>
+            </div>
+
+            <!-- Action Bar Above Document -->
+            <div class="max-w-4xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-3 glass-card p-4 rounded-2xl">
+                <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
+                    <i class="fa-solid fa-file-shield text-sky-400 text-lg"></i>
+                    <span>ডকুমেন্ট স্ট্যাটাস: <strong id="docStatusIndicator" class="text-amber-400">ডেমো প্রিভিউ (চ্যাটবট বা অ্যাডমিন থেকে ডাটা দিলে আপডেট হবে)</strong></span>
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                    <button onclick="downloadProvisionalPDF()" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-file-pdf"></i> PDF ডাউনলোড করুন
+                    </button>
+                    <button onclick="sendToEmails()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs sm:text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-envelope-circle-check"></i> উভয় ইমেইলে পাঠান
+                    </button>
+                    <button onclick="sendToWhatsApp()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm flex items-center gap-2 transition">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ পাঠান
+                    </button>
+                </div>
+            </div>
+
+            <!-- A4 OFFICIAL PROVISIONAL DOCUMENT TEMPLATE -->
+            <div class="max-w-4xl mx-auto overflow-x-auto rounded-2xl shadow-2xl border border-slate-700">
+                <div id="provisionalDocument" class="p-8 sm:p-12 min-w-[720px] bg-white text-slate-900 relative">
+                    <!-- Top Header -->
+                    <div class="flex items-start justify-between border-b-2 border-slate-900 pb-6">
+                        <div class="flex items-center gap-4">
+                            <img id="docLogoImg" src="1268.jpg" alt="RetherTach" class="w-20 h-20 object-contain border border-slate-200 rounded-xl p-1" onerror="this.style.display='none'">
+                            <div>
+                                <h1 class="text-2xl font-black tracking-tight text-slate-900">RETHERTACK <span class="text-sky-600 font-bold text-base">(RetherTach)</span></h1>
+                                <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Connecting Technology • AI • Software • Global Innovation</p>
+                                <p class="text-xs text-slate-600 mt-1">Founder & Owner: <strong>Md Eyasin</strong> | Gazipur, Dhaka Division, Bangladesh</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block px-3 py-1 rounded-md bg-amber-100 border border-amber-400 text-amber-900 font-extrabold text-xs uppercase tracking-wider">
+                                PROVISIONAL / UNFINALIZED
+                            </span>
+                            <div class="text-xs text-slate-600 mt-2">Doc Ref: <strong id="docRefId" class="text-slate-900">RT-2026-DEMO01</strong></div>
+                            <div class="text-xs text-slate-600">Issue Date: <strong id="docIssueDate" class="text-slate-900">2026-10-31</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Conditional Banner Notice -->
+                    <div class="my-5 p-4 rounded-xl bg-amber-50 border-l-4 border-amber-500 text-xs text-slate-800 leading-relaxed">
+                        <strong class="text-amber-900 uppercase block mb-0.5">গুরুত্বপূর্ণ ঘোষণা (Provisional Verification Notice):</strong>
+                        ডোনার বা ইনভেস্টর কর্তৃক প্রদত্ত এই অর্থ এখনো চূড়ান্তভাবে অনুমোদন (Final Yes) করা হয়নি। নিচে উল্লিখিত নির্ধারিত সময়ে ফাউন্ডার <strong>Md Eyasin</strong>-এর সাথে সরাসরি (In-Person) মিটিংয়ের পর চূড়ান্তভাবে বিবেচনা করা হবে যে তিনি এই অর্থ <strong>ডোনেশন (Donation)</strong> হিসেবে দিচ্ছেন নাকি <strong>প্রোডাক্ট-ভিত্তিক ইনভেস্টমেন্ট (Product-based Profit Participation)</strong> হিসেবে প্রদান করছেন।
+                    </div>
+
+                    <!-- Applicant Profile & Photo Grid -->
+                    <div class="grid grid-cols-12 gap-6 my-6 items-center bg-slate-50 p-5 rounded-xl border border-slate-200">
+                        <div class="col-span-3 flex flex-col items-center">
+                            <img id="docApplicantPhoto" src="https://ui-avatars.com/api/?name=Investor+Photo&background=0F172A&color=38BDF8&size=200" alt="Applicant Photo" class="w-28 h-32 object-cover rounded-xl border-2 border-slate-800 shadow">
+                            <span class="text-[11px] font-bold text-slate-600 mt-1.5">আবেদনকারীর ছবি</span>
+                        </div>
+                        <div class="col-span-9 grid grid-cols-2 gap-y-3 gap-x-6 text-xs">
+                            <div>
+                                <span class="text-slate-500 block">আবেদনকারীর নাম (Full Name):</span>
+                                <strong id="docApplicantName" class="text-sm text-slate-900">জনাব/জনাবা (নমুনা নাম)</strong>
+                            </div>
+                            <div>
+                                <span class="text-slate-500 block">বয়স (Age):</span>
+                                <strong id="docApplicantAge" class="text-sm text-slate-900">২৮ বছর</strong>
+                            </div>
+                            <div>
+                                <span class="text-slate-500 block">প্রস্তাবিত ধরন (Proposed Type):</span>
+                                <strong id="docApplicantType" class="text-sm text-sky-700">প্রোডাক্ট-ভিত্তিক ইনভেস্টমেন্ট (বিবেচনাধীন)</strong>
+                            </div>
+                            <div>
+                                <span class="text-slate-500 block">মোবাইল নাম্বার (Mobile Number):</span>
+                                <strong id="docApplicantPhone" class="text-sm text-slate-900">+880 1XXX-XXXXXX</strong>
+                            </div>
+                            <div>
+                                <span class="text-slate-500 block">হোয়াটসঅ্যাপ নাম্বার (Active WhatsApp):</span>
+                                <strong id="docApplicantWhatsApp" class="text-sm text-emerald-700">+880 1XXX-XXXXXX</strong>
+                            </div>
+                            <div>
+                                <span class="text-slate-500 block">ইমেইল এড্রেস (Delivery Email):</span>
+                                <strong id="docApplicantEmail" class="text-sm text-slate-900">investor@example.com</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment & OCR Extracted Data Table -->
+                    <div class="my-6">
+                        <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-2">পেমেন্ট ও স্ক্রিনশট ওসিআর ভেরিফিকেশন তথ্য (Payment & OCR Extracted Data)</h4>
+                        <table class="w-full text-xs border-collapse border border-slate-300">
+                            <tr class="bg-slate-100">
+                                <th class="border border-slate-300 p-2.5 text-left">পেমেন্ট মাধ্যম (Gateway)</th>
+                                <th class="border border-slate-300 p-2.5 text-left">প্রেরিত টাকার পরিমাণ (Amount)</th>
+                                <th class="border border-slate-300 p-2.5 text-left">ট্রানজেকশন আইডি (OCR TrxID)</th>
+                                <th class="border border-slate-300 p-2.5 text-left">রিসিভিং একাউন্ট নাম্বার</th>
+                            </tr>
+                            <tr>
+                                <td id="docPaymentMethod" class="border border-slate-300 p-2.5 font-bold">বিকাশ (bKash Personal/Merchant)</td>
+                                <td id="docPaymentAmount" class="border border-slate-300 p-2.5 font-extrabold text-emerald-700 text-sm">৳ ৫০,০০০ BDT</td>
+                                <td id="docPaymentTrx" class="border border-slate-300 p-2.5 font-mono font-bold">TXN9845120RT</td>
+                                <td id="docReceivingAcc" class="border border-slate-300 p-2.5 font-mono">01XXXXXXXXX</td>
+                            </tr>
+                        </table>
+                        <div class="mt-2 p-2.5 rounded bg-slate-100 border border-slate-200 text-[11px] text-slate-600">
+                            <strong>OCR স্ক্রিনশট সারাংশ:</strong> <span id="docOcrSummary">স্ক্রিনশট থেকে স্বয়ংক্রিয়ভাবে যাচাইকৃত। চূড়ান্ত অনুমোদন সরাসরি মিটিংয়ের পর সম্পন্ন হবে।</span>
+                        </div>
+                    </div>
+
+                    <!-- Mandatory Physical Meeting Schedule Box -->
+                    <div class="my-6 p-5 rounded-xl bg-sky-50 border-2 border-sky-600 grid grid-cols-3 gap-4 text-xs">
+                        <div>
+                            <span class="text-sky-800 font-semibold block">সরাসরি মিটিংয়ের তারিখ ও সময়:</span>
+                            <strong id="docMeetingDateTime" class="text-sm text-slate-950 mt-0.5 block">১০ নভেম্বর ২০২৬, বিকাল ৪:০০ মি.</strong>
+                        </div>
+                        <div>
+                            <span class="text-sky-800 font-semibold block">মিটিংয়ের স্থান (Meeting Location):</span>
+                            <strong id="docMeetingLocation" class="text-sm text-slate-950 mt-0.5 block">চান্দনা চৌরাস্তা, গাজীপুর, ঢাকা</strong>
+                        </div>
+                        <div>
+                            <span class="text-sky-800 font-semibold block">চূড়ান্ত বিবেচনার বিষয়:</span>
+                            <strong class="text-xs text-slate-900 mt-0.5 block">ডোনেশন নাকি প্রোডাক্ট-লভ্যাংশ ইনভেস্টমেন্ট তা চূড়ান্তকরণ ও স্বাক্ষর</strong>
+                        </div>
+                    </div>
+
+                    <!-- Signatures & Footer -->
+                    <div class="grid grid-cols-2 gap-8 mt-10 pt-6 border-t border-slate-300 text-xs">
+                        <div class="flex items-center gap-3">
+                            <img id="docFounderThumb" src="1266.jpg" alt="Md Eyasin" class="w-14 h-14 rounded-lg object-cover object-top border border-slate-400" onerror="this.style.display='none'">
+                            <div>
+                                <div class="font-serif italic text-base font-bold text-slate-900">Md Eyasin</div>
+                                <div class="font-bold text-slate-900">Md Eyasin</div>
+                                <div class="text-slate-600">Founder & Owner, Rethertack (RetherTach)</div>
+                                <div class="text-[11px] text-slate-500">Email: <span id="docFounderEmailText">mdeyasin@rethertack.com</span></div>
+                            </div>
+                        </div>
+                        <div class="text-right flex flex-col justify-end">
+                            <div class="inline-block ml-auto border-t border-slate-400 pt-1 px-6 font-bold text-slate-800">
+                                ডোনার / ইনভেস্টরের স্বাক্ষর (মিটিংয়ের সময়)
+                            </div>
+                            <p class="text-[11px] text-slate-500 mt-1">এই ডকুমেন্টটি স্বয়ংক্রিয়ভাবে জেনারেট হয়ে উভয় পক্ষের ইমেইল ও হোয়াটসঅ্যাপে প্রেরিত হয়েছে।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE CHATBOT & APPLICATION MODAL -->
+    <div id="chatbotModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card w-full max-w-4xl rounded-3xl border border-sky-500/40 shadow-2xl overflow-hidden my-8">
+            <!-- Modal Header -->
+            <div class="bg-slate-900/90 px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-sky-500/20 border border-sky-400 flex items-center justify-center text-sky-400">
+                        <i class="fa-solid fa-robot text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white text-base">Rethertack Smart Investment & Donation Assistant</h3>
+                        <p class="text-xs text-emerald-400 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Online • পেমেন্ট নাম্বার ও ডকুমেন্ট অটোমেশন বট
+                        </p>
+                    </div>
+                </div>
+                <button onclick="closeChatbotModal()" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-rose-500/20 hover:text-rose-400 text-slate-400 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body: Left Chat Stream + Right Structured Form -->
+            <div class="grid md:grid-cols-12 max-h-[82vh] overflow-y-auto">
+                <!-- Left Column: Interactive Chat Stream (5 cols) -->
+                <div class="md:col-span-5 bg-slate-950/70 p-5 border-r border-slate-800 flex flex-col justify-between">
+                    <div id="chatMessagesBox" class="space-y-3 overflow-y-auto max-h-[420px] pr-1 text-xs leading-relaxed">
+                        <!-- Populated dynamically by JS -->
+                    </div>
+
+                    <!-- Quick Chat Prompt Buttons -->
+                    <div class="pt-4 border-t border-slate-800/80 mt-4 space-y-2">
+                        <div class="text-[11px] text-slate-400 font-semibold">দ্রুত জানতে ক্লিক করুন:</div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <button onclick="botQuickReply('invest_rules')" class="px-2.5 py-1.5 rounded-lg bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 text-xs border border-sky-500/30 transition">ইনভেস্টমেন্টের নিয়ম কী?</button>
+                            <button onclick="botQuickReply('show_numbers')" class="px-2.5 py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 text-xs border border-amber-500/30 transition">বিকাশ/নগদ/ব্যাংক নাম্বার দাও</button>
+                            <button onclick="botQuickReply('meeting_process')" class="px-2.5 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 text-xs border border-emerald-500/30 transition">মিটিং ও ডকুমেন্ট কীভাবে পাবো?</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Investor/Donor Submission Form (7 cols) -->
+                <div class="md:col-span-7 p-6 space-y-4">
+                    <div class="p-3 rounded-xl bg-sky-500/10 border border-sky-500/30 text-xs text-sky-200">
+                        <strong>নির্দেশনা:</strong> নিচের ফর্মে আপনার উদ্দেশ্য ও পেমেন্ট মাধ্যম সিলেক্ট করলে সাথে সাথে একাউন্ট নাম্বার দেখতে পাবেন। পেমেন্ট করে ফর্মটি সাবমিট করলেই ফাউন্ডার <strong>Md Eyasin</strong> নোটিফিকেশন পাবেন।
+                    </div>
+
+                    <form id="investorSubmissionForm" onsubmit="submitInvestorForm(event)" class="space-y-3.5 text-xs sm:text-sm">
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-slate-300 font-semibold mb-1">আপনি কী করতে চান? *</label>
+                                <select id="formIntentType" required onchange="onGatewayOrIntentChange()" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2.5 text-white focus:border-sky-400 outline-none">
+                                    <option value="Investment (প্রোডাক্ট-ভিত্তিক ইনভেস্টমেন্ট)">ইনভেস্টমেন্ট (Product Profit Share)</option>
+                                    <option value="Donation (গবেষণা ও উন্নয়ন ডোনেশন)">ডোনেশন (R&D Support Donation)</option>
+                                    <option value="Undecided (সরাসরি মিটিংয়ে চূড়ান্ত করব)">মিটিংয়ে এসে চূড়ান্ত করব</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-slate-300 font-semibold mb-1">কোন মাধ্যমে টাকা পাঠাতে চান? *</label>
+                                <select id="formPaymentGateway" required onchange="onGatewayOrIntentChange()" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2.5 text-white focus:border-sky-400 outline-none">
+                                    <!-- Populated by JS -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Highlighted Selected Account Number Box -->
+                        <div class="p-3.5 rounded-xl bg-amber-500/15 border border-amber-500/40 flex items-center justify-between">
+                            <div>
+                                <div class="text-[11px] text-amber-300 font-bold uppercase" id="selectedGatewayLabel">নির্বাচিত পেমেন্ট একাউন্ট নাম্বার:</div>
+                                <div class="text-lg font-mono font-extrabold text-white mt-0.5" id="selectedGatewayNumber">01XXXXXXXXX</div>
+                                <div class="text-[11px] text-slate-300" id="selectedGatewayNote">এই নাম্বারে পেমেন্ট করে নিচের তথ্যগুলো পূরণ করুন।</div>
+                            </div>
+                            <button type="button" onclick="copySelectedGatewayNumber()" class="px-3 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs flex items-center gap-1.5">
+                                <i class="fa-regular fa-copy"></i> কপি নাম্বার
+                            </button>
+                        </div>
+
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <div class="sm:col-span-2">
+                                <label class="block text-slate-300 font-semibold mb-1">আপনার পূর্ণ নাম (Full Name) *</label>
+                                <input type="text" id="formFullName" required placeholder="যেমন: মো: রফিকুল ইসলাম" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-white focus:border-sky-400 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-slate-300 font-semibold mb-1">আপনার বয়স (Age) *</label>
+                                <input type="number" id="formAge" required min="18" max="100" placeholder="যেমন: 29" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-white focus:border-sky-400 outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-slate-300 font-semibold mb-1">মোবাইল নাম্বার (সচল) *</label>
+                                <input type="tel" id="formPhone" required placeholder="+8801XXXXXXXXX" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-white focus:border-sky-400 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-emerald-400 font-semibold mb-1"><i class="fa-brands fa-whatsapp"></i> WhatsApp খোলা আছে এমন নাম্বার *</label>
+                                <input type="tel" id="formWhatsApp" required placeholder="+8801XXXXXXXXX (ডকুমেন্ট যাবে)" class="w-full rounded-xl bg-slate-900 border border-emerald-500/50 px-3 py-2 text-white focus:border-emerald-400 outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-slate-300 font-semibold mb-1">ইমেইল এড্রেস (ডকুমেন্ট পাঠানো হবে) *</label>
+                                <input type="email" id="formEmail" required placeholder="yourname@gmail.com" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-white focus:border-sky-400 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-slate-300 font-semibold mb-1">আপনার ছবি আপলোড করুন (ডকুমেন্টের জন্য) *</label>
+                                <input type="file" id="formApplicantPhoto" accept="image/*" required onchange="handleApplicantPhotoUpload(event)" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-2.5 py-1.5 text-xs text-slate-300">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-slate-300 font-semibold mb-1">প্রেরিত টাকার পরিমাণ (BDT / USD) *</label>
+                                <input type="text" id="formAmount" required placeholder="যেমন: 50,000 BDT" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-white focus:border-sky-400 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-slate-300 font-semibold mb-1">ট্রানজেকশন আইডি / শেষ ৪ ডিজিট *</label>
+                                <input type="text" id="formTrxId" required placeholder="যেমন: BI8945K2L" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-white focus:border-sky-400 outline-none">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-emerald-500 hover:from-sky-400 hover:to-emerald-400 text-slate-950 font-extrabold text-sm shadow-lg transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>পেমেন্ট তথ্য সাবমিট করুন ও নোটিফিকেশন পাঠান</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOUNDER ADMIN & OCR SCREENSHOT SCANNER MODAL -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card w-full max-w-5xl rounded-3xl border border-amber-500/40 shadow-2xl overflow-hidden my-8">
+            <div class="bg-slate-900 px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400 text-amber-400 flex items-center justify-center">
+                        <i class="fa-solid fa-user-shield text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white text-base">Founder Admin Studio — OCR Screenshot Scanner & Document Dispatch</h3>
+                        <p class="text-xs text-slate-400">পেমেন্টের স্ক্রিনশট আপলোড করলে ছবি থেকে ডাটা কালেক্ট করে অটোমেটিক ডকুমেন্ট তৈরি ও ইমেইল/হোয়াটসঅ্যাপে পাঠাবে।</p>
+                    </div>
+                </div>
+                <button onclick="toggleAdminModal()" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-rose-500/20 hover:text-rose-400 text-slate-400 flex items-center justify-center">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="p-6 grid lg:grid-cols-12 gap-6 max-h-[82vh] overflow-y-auto text-xs sm:text-sm">
+                <!-- Left Column: Pending Notifications & Account Settings (5 cols) -->
+                <div class="lg:col-span-5 space-y-5">
+                    <div>
+                        <h4 class="font-bold text-amber-400 uppercase tracking-wider text-xs mb-2 flex items-center justify-between">
+                            <span>১. আগত পেমেন্ট নোটিফিকেশন তালিকা</span>
+                            <button onclick="clearAllSubmissions()" class="text-[11px] text-rose-400 hover:underline">সব মুছুন</button>
+                        </h4>
+                        <div id="adminSubmissionsList" class="space-y-2.5 max-h-60 overflow-y-auto pr-1">
+                            <!-- Populated dynamically by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Founder Account & Email Config -->
+                    <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+                        <h4 class="font-bold text-sky-400 uppercase tracking-wider text-xs">২. আপনার জিমেইল ও একাউন্ট নাম্বার সেটিংস</h4>
+                        <div>
+                            <label class="block text-slate-400 text-xs mb-1">আপনার জিমেইল এড্রেস (যেখানে ডকুমেন্টের কপি আসবে):</label>
+                            <input type="email" id="adminFounderEmail" value="mdeyasin@gmail.com" onchange="saveFounderConfig()" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3 py-1.5 text-white text-xs">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-slate-400 text-xs mb-1">বিকাশ নাম্বার:</label>
+                                <input type="text" id="cfgBkash" value="017XXXXXXXX" onchange="saveFounderConfig()" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-2.5 py-1.5 text-white text-xs font-mono">
+                            </div>
+                            <div>
+                                <label class="block text-slate-400 text-xs mb-1">নগদ নাম্বার:</label>
+                                <input type="text" id="cfgNagad" value="018XXXXXXXX" onchange="saveFounderConfig()" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-2.5 py-1.5 text-white text-xs font-mono">
+                            </div>
+                            <div>
+                                <label class="block text-slate-400 text-xs mb-1">রকেট নাম্বার:</label>
+                                <input type="text" id="cfgRocket" value="019XXXXXXXX" onchange="saveFounderConfig()" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-2.5 py-1.5 text-white text-xs font-mono">
+                            </div>
+                            <div>
+                                <label class="block text-slate-400 text-xs mb-1">ব্যাংক / Binance ID:</label>
+                                <input type="text" id="cfgBank" value="DBBL A/C: 145.XXX.XXXX" onchange="saveFounderConfig()" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-2.5 py-1.5 text-white text-xs font-mono">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: OCR Image Upload & Meeting Scheduler (7 cols) -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="p-4 rounded-2xl bg-slate-900/90 border border-sky-500/30 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-white text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-camera-rotate text-sky-400"></i>
+                                <span>৩. টাকা আসার স্ক্রিনশট/ছবি আপলোড করুন (OCR Data Collector)</span>
+                            </h4>
+                            <span id="ocrProgressStatus" class="text-xs text-amber-400 font-semibold">স্ক্রিনশটের অপেক্ষায়...</span>
+                        </div>
+
+                        <input type="file" id="ocrScreenshotInput" accept="image/*" onchange="runPaymentScreenshotOCR(event)" class="w-full rounded-xl bg-slate-950 border border-slate-700 p-2 text-xs text-slate-300">
+
+                        <!-- Extracted OCR Fields -->
+                        <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                            <div>
+                                <label class="block text-slate-400 text-xs mb-1">ছবি থেকে পাওয়া টাকার পরিমাণ (OCR Amount):</label>
+                                <input type="text" id="ocrExtractedAmount" placeholder="স্ক্যান হলে অটো বসবে বা এডিট করুন" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3 py-2 text-emerald-400 font-bold text-xs">
+                            </div>
+                            <div>
+                                <label class="block text-slate-400 text-xs mb-1">ছবি থেকে পাওয়া TrxID (OCR TrxID):</label>
+                                <input type="text" id="ocrExtractedTrx" placeholder="স্ক্যান হলে অটো বসবে বা এডিট করুন" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3 py-2 text-sky-400 font-mono font-bold text-xs">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-slate-400 text-xs mb-1">ছবি থেকে সংগৃহীত সম্পূর্ণ টেক্সট (Raw OCR Data):</label>
+                            <textarea id="ocrRawTextOutput" rows="2" placeholder="স্ক্রিনশটের ভেতরের সব লেখা এখানে চলে আসবে..." class="w-full rounded-lg bg-slate-950 border border-slate-700 p-2 text-xs text-slate-300"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Meeting Time & Final Document Trigger -->
+                    <div class="p-4 rounded-2xl bg-slate-900/90 border border-emerald-500/30 space-y-3">
+                        <h4 class="font-bold text-emerald-400 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>৪. সরাসরি মিটিংয়ের সময় নির্ধারণ ও অটো ডকুমেন্ট তৈরি</span>
+                        </h4>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-slate-300 text-xs mb-1">সরাসরি মিটিংয়ের তারিখ ও সময় *</label>
+                                <input type="text" id="adminMeetingTime" value="১৫ নভেম্বর ২০২৬, বিকাল ৪:৩০ মি." class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3 py-2 text-white text-xs">
+                            </div>
+                            <div>
+                                <label class="block text-slate-300 text-xs mb-1">মিটিংয়ের স্থান (অফিস/লোকেশন) *</label>
+                                <input type="text" id="adminMeetingPlace" value="চান্দনা চৌরাস্তা, গাজীপুর (Rethertack Desk)" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3 py-2 text-white text-xs">
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="generateAndDispatchAll()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 font-extrabold text-sm shadow-xl flex items-center justify-center gap-2 transition">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>ডকুমেন্ট তৈরি করুন + অটো PDF ডাউনলোড + Gmail ও WhatsApp-এ পাঠান</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-10 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="font-extrabold text-white text-base">RETHERTACK <span class="text-sky-400">(RetherTach)</span></span>
+                <span>— Research. Build. Innovate. Deliver.</span>
+            </div>
+            <div>
+                Founder & Owner: <strong class="text-white">Md Eyasin</strong> • All Rights Reserved © 2026–2028
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING QUICK ACCESS BUTTONS & NOTIFICATION TOAST CONTAINER -->
+    <div id="toastContainer" class="fixed top-24 right-5 z-50 space-y-3 max-w-sm w-full pointer-events-none"></div>
+
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+        <!-- Quick Admin OCR Shortcut -->
+        <button onclick="toggleAdminModal()" class="px-4 py-2.5 rounded-full glass-card border border-amber-500/40 text-amber-300 hover:bg-amber-500 hover:text-slate-950 font-bold text-xs shadow-xl flex items-center gap-2 transition">
+            <i class="fa-solid fa-camera-rotate"></i>
+            <span>স্ক্রিনশট OCR ও অ্যাডমিন</span>
+        </button>
+
+        <!-- Floating Chatbot Trigger -->
+        <button onclick="openChatbotModal()" class="px-5 py-4 rounded-full bg-gradient-to-r from-sky-500 to-emerald-500 hover:from-sky-400 hover:to-emerald-400 text-slate-950 font-extrabold text-sm shadow-2xl flex items-center gap-2.5 glow-btn transition transform hover:scale-105">
+            <i class="fa-solid fa-comments-dollar text-lg"></i>
+            <span>পেমেন্ট ও চ্যাটবট</span>
+        </button>
+    </div>
+
+    <!-- MAIN APPLICATION JAVASCRIPT ENGINE -->
+    <script>
+        // ==================== 1. STATE & INITIAL CONFIGURATION ====================
+        const STORAGE_KEYS = {
+            CONFIG: 'rethertack_founder_config_v1',
+            SUBMISSIONS: 'rethertack_submissions_v1',
+            ACTIVE_DOC: 'rethertack_active_doc_v1'
+        };
+
+        let founderConfig = {
+            founderEmail: 'mdeyasin@gmail.com',
+            bkash: '01700-000000 (Personal / Send Money)',
+            nagad: '01800-000000 (Personal / Send Money)',
+            rocket: '01900-000000 (Personal / Send Money)',
+            bank: 'Dutch-Bangla Bank (DBBL) • A/C: 145.105.000000 • Name: Md Eyasin'
+        };
+
+        let paymentGateways = [];
+        let submissionsList = [];
+        let uploadedApplicantPhotoBase64 = 'https://ui-avatars.com/api/?name=Investor+Photo&background=0F172A&color=38BDF8&size=240';
+        let activeSubmissionIndex = -1;
+
+        // Current Active Document Data
+        let currentDocData = {
+            refId: 'RT-2026-8901',
+            issueDate: new Date().toISOString().split('T')[0],
+            name: 'জনাব/জনাবা (নমুনা ইনভেস্টর)',
+            age: '২৮ বছর',
+            intent: 'Investment (প্রোডাক্ট-ভিত্তিক ইনভেস্টমেন্ট)',
+            phone: '+880 17XX-XXXXXX',
+            whatsapp: '+880 17XX-XXXXXX',
+            email: 'investor@example.com',
+            photo: uploadedApplicantPhotoBase64,
+            gatewayName: 'বিকাশ (bKash)',
+            receivingAccount: '01700-000000',
+            amount: '50,000 BDT',
+            trxId: 'TXN9845120RT',
+            ocrSummary: 'স্ক্রিনশট থেকে স্বয়ংক্রিয়ভাবে যাচাইকৃত। চূড়ান্ত অনুমোদন সরাসরি মিটিংয়ের পর সম্পন্ন হবে।',
+            meetingDateTime: '১৫ নভেম্বর ২০২৬, বিকাল ৪:৩০ মি.',
+            meetingLocation: 'চান্দনা চৌরাস্তা, গাজীপুর (Rethertack Desk)'
+        };
+
+        // ==================== 2. INITIALIZATION ON PAGE LOAD ====================
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSavedState();
+            rebuildGatewayList();
+            renderPaymentVaultCards();
+            populateChatbotGatewayDropdown();
+            renderChatWelcomeMessages();
+            renderAdminSubmissionsList();
+            updateProvisionalDocumentDOM();
+        });
+
+        function loadSavedState() {
+            try {
+                const savedCfg = localStorage.getItem(STORAGE_KEYS.CONFIG);
+                if (savedCfg) {
+                    founderConfig = { ...founderConfig, ...JSON.parse(savedCfg) };
+                }
+                document.getElementById('adminFounderEmail').value = founderConfig.founderEmail;
+                document.getElementById('cfgBkash').value = founderConfig.bkash;
+                document.getElementById('cfgNagad').value = founderConfig.nagad;
+                document.getElementById('cfgRocket').value = founderConfig.rocket;
+                document.getElementById('cfgBank').value = founderConfig.bank;
+
+                const savedSubs = localStorage.getItem(STORAGE_KEYS.SUBMISSIONS);
+                if (savedSubs) {
+                    submissionsList = JSON.parse(savedSubs);
+                }
+
+                const savedDoc = localStorage.getItem(STORAGE_KEYS.ACTIVE_DOC);
+                if (savedDoc) {
+                    currentDocData = { ...currentDocData, ...JSON.parse(savedDoc) };
+                }
+            } catch (err) {
+                console.warn('State load warning:', err);
+            }
+        }
+
+        function rebuildGatewayList() {
+            paymentGateways = [
+                {
+                    id: 'bkash',
+                    name: 'বিকাশ (bKash)',
+                    badge: 'Instant Mobile Banking',
+                    number: founderConfig.bkash,
+                    icon: 'fa-solid fa-mobile-screen-button',
+                    color: 'from-pink-600 to-rose-600',
+                    border: 'border-pink-500/40',
+                    note: 'বিকাশ অ্যাপ থেকে Send Money / Payment করে TrxID সংরক্ষণ করুন।'
+                },
+                {
+                    id: 'nagad',
+                    name: 'নগদ (Nagad)',
+                    badge: 'Fast Mobile Transfer',
+                    number: founderConfig.nagad,
+                    icon: 'fa-solid fa-wallet',
+                    color: 'from-amber-500 to-orange-600',
+                    border: 'border-amber-500/40',
+                    note: 'নগদ অ্যাপ থেকে টাকা পাঠিয়ে স্ক্রিনশট ও TrxID সংরক্ষণ করুন।'
+                },
+                {
+                    id: 'rocket',
+                    name: 'রকেট (DBBL Rocket)',
+                    badge: 'Dutch-Bangla Mobile',
+                    number: founderConfig.rocket,
+                    icon: 'fa-solid fa-bolt',
+                    color: 'from-purple-600 to-indigo-600',
+                    border: 'border-purple-500/40',
+                    note: 'রকেট একাউন্টে পেমেন্ট শেষে ট্রানজেকশন আইডি ফর্মে দিন।'
+                },
+                {
+                    id: 'bank',
+                    name: 'ব্যাংক একাউন্ট / গ্লোবাল গেটওয়ে',
+                    badge: 'Bank / International Transfer',
+                    number: founderConfig.bank,
+                    icon: 'fa-solid fa-building-columns',
+                    color: 'from-sky-500 to-blue-700',
+                    border: 'border-sky-500/40',
+                    note: 'বড় অঙ্কের ইনভেস্টমেন্ট বা আন্তর্জাতিক ট্রান্সফারের জন্য ব্যাংক একাউন্ট ব্যবহার করুন।'
+                }
+            ];
+        }
+
+        // ==================== 3. RENDER PAYMENT VAULT CARDS ====================
+        function renderPaymentVaultCards() {
+            const container = document.getElementById('paymentAccountsContainer');
+            if (!container) return;
+
+            container.innerHTML = paymentGateways.map(gw => `
+                <div class="glass-card rounded-2xl p-6 border ${gw.border} flex flex-col justify-between transition hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded-full bg-slate-900 text-slate-300 text-[11px] font-semibold border border-slate-700">${gw.badge}</span>
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${gw.color} text-white flex items-center justify-center shadow-lg">
+                                <i class="${gw.icon} text-lg"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-white">${gw.name}</h3>
+                        <div class="mt-3 p-3 rounded-xl bg-slate-950/90 border border-slate-800 font-mono text-sm font-bold text-sky-300 break-words">
+                            ${gw.number}
+                        </div>
+                        <p class="text-xs text-slate-400 mt-3 leading-relaxed">${gw.note}</p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center gap-2">
+                        <button onclick="copyTextToClipboard('${gw.number.replace(/'/g, "\\'")}', '${gw.name} নাম্বার কপি হয়েছে!')" class="flex-1 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                            <i class="fa-regular fa-copy text-sky-400"></i> কপি নাম্বার
+                        </button>
+                        <button onclick="selectGatewayAndOpenBot('${gw.id}')" class="px-3 py-2 rounded-lg bg-sky-500/20 hover:bg-sky-500 hover:text-slate-950 text-sky-300 text-xs font-bold transition">
+                            পেমেন্ট করুন
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function saveFounderConfig() {
+            founderConfig.founderEmail = document.getElementById('adminFounderEmail').value.trim() || 'mdeyasin@gmail.com';
+            founderConfig.bkash = document.getElementById('cfgBkash').value.trim();
+            founderConfig.nagad = document.getElementById('cfgNagad').value.trim();
+            founderConfig.rocket = document.getElementById('cfgRocket').value.trim();
+            founderConfig.bank = document.getElementById('cfgBank').value.trim();
+
+            localStorage.setItem(STORAGE_KEYS.CONFIG, JSON.stringify(founderConfig));
+            rebuildGatewayList();
+            renderPaymentVaultCards();
+            populateChatbotGatewayDropdown();
+            updateProvisionalDocumentDOM();
+            showToast('একাউন্ট নাম্বার ও জিমেইল সেটিংস আপডেট হয়েছে!', 'success');
+        }
+
+        // ==================== 4. SMART CHATBOT & FORM LOGIC ====================
+        function populateChatbotGatewayDropdown() {
+            const select = document.getElementById('formPaymentGateway');
+            if (!select) return;
+            select.innerHTML = paymentGateways.map(gw => `<option value="${gw.id}">${gw.name}</option>`).join('');
+            onGatewayOrIntentChange();
+        }
+
+        function onGatewayOrIntentChange() {
+            const gwId = document.getElementById('formPaymentGateway').value;
+            const intent = document.getElementById('formIntentType').value;
+            const gw = paymentGateways.find(g => g.id === gwId) || paymentGateways[0];
+
+            document.getElementById('selectedGatewayLabel').textContent = `${gw.name} একাউন্ট নাম্বার (${intent.split(' ')[0]}):`;
+            document.getElementById('selectedGatewayNumber').textContent = gw.number;
+            document.getElementById('selectedGatewayNote').textContent = gw.note;
+        }
+
+        function copySelectedGatewayNumber() {
+            const num = document.getElementById('selectedGatewayNumber').textContent;
+            copyTextToClipboard(num, 'পেমেন্ট একাউন্ট নাম্বার কপি করা হয়েছে!');
+        }
+
+        function selectGatewayAndOpenBot(gatewayId) {
+            openChatbotModal();
+            const select = document.getElementById('formPaymentGateway');
+            if (select) {
+                select.value = gatewayId;
+                onGatewayOrIntentChange();
+            }
+            const gw = paymentGateways.find(g => g.id === gatewayId);
+            if (gw) {
+                appendChatMessage('bot', `আপনি <strong>${gw.name}</strong> মাধ্যমটি নির্বাচন করেছেন। আমাদের একাউন্ট নাম্বার: <code class="text-amber-300 font-bold">${gw.number}</code>। পেমেন্ট সম্পন্ন করে ডান পাশের ফর্মে আপনার ছবি, বয়স, ইমেইল এবং হোয়াটসঅ্যাপ নাম্বার দিয়ে সাবমিট করুন।`);
+            }
+        }
+
+        function openChatbotModal() {
+            document.getElementById('chatbotModal').classList.remove('hidden');
+        }
+
+        function closeChatbotModal() {
+            document.getElementById('chatbotModal').classList.add('hidden');
+        }
+
+        function renderChatWelcomeMessages() {
+            const box = document.getElementById('chatMessagesBox');
+            if (!box) return;
+            box.innerHTML = '';
+            appendChatMessage('bot', `আসসালামু আলাইকুম! <strong>Rethertack (RetherTach)</strong>-এর অফিশিয়াল ইনভেস্টমেন্ট ও ডোনেশন পোর্টালে আপনাকে স্বাগতম। আমি ফাউন্ডার <strong>Md Eyasin</strong>-এর এআই অ্যাসিস্ট্যান্ট।`);
+            appendChatMessage('bot', `আপনি কি আমাদের কোম্পানিতে <strong>ডোনেট (Donate)</strong> করতে চান নাকি <strong>প্রোডাক্ট-ভিত্তিক ইনভেস্ট (Invest)</strong> করতে চান? নিচের বাটনে ক্লিক করুন অথবা ডান পাশের ফর্ম থেকে পেমেন্ট নাম্বার নিয়ে তথ্য পূরণ করুন।`);
+        }
+
+        function appendChatMessage(sender, htmlText) {
+            const box = document.getElementById('chatMessagesBox');
+            if (!box) return;
+            const div = document.createElement('div');
+            if (sender === 'bot') {
+                div.className = 'p-3.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-slate-200 shadow';
+                div.innerHTML = `<div class="text-[10px] font-bold text-sky-400 uppercase mb-1"><i class="fa-solid fa-robot mr-1"></i>Rethertack AI Bot</div><div>${htmlText}</div>`;
+            } else {
+                div.className = 'p-3 rounded-2xl rounded-tr-none bg-sky-500/20 border border-sky-500/40 text-sky-100 ml-6 text-right';
+                div.innerHTML = `<div class="text-[10px] font-bold text-emerald-300 uppercase mb-0.5">আপনি (Investor / Donor)</div><div>${htmlText}</div>`;
+            }
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function botQuickReply(topic) {
+            if (topic === 'invest_rules') {
+                appendChatMessage('user', 'ইনভেস্টমেন্ট বা ডোনেশনের নিয়ম কী?');
+                setTimeout(() => {
+                    appendChatMessage('bot', `<strong>Rethertack Investment & Donation Policy:</strong><br>১. এখন অনলাইনে পেমেন্ট করার পর তা সাথে সাথে চূড়ান্ত (Final Yes) হিসেবে গণ্য হবে না।<br>২. আপনার পেমেন্টের স্ক্রিনশট আমাদের সিস্টেম OCR দিয়ে যাচাই করে আপনাকে একটি <strong>প্রভিশনাল ডকুমেন্ট ও সরাসরি মিটিংয়ের সময়</strong> দেবে।<br>৩. নির্ধারিত সময়ে ফাউন্ডার <strong>Md Eyasin</strong>-এর সাথে সরাসরি মিটিংয়ে বসে চূড়ান্ত করা হবে আপনি ডোনেট করছেন নাকি Product-based Profit Participation মডেলে ইনভেস্ট করছেন।`);
+                }, 250);
+            } else if (topic === 'show_numbers') {
+                appendChatMessage('user', 'বিকাশ, নগদ ও ব্যাংক নাম্বারগুলো দাও।');
+                setTimeout(() => {
+                    const listHtml = paymentGateways.map(g => `• <strong>${g.name}:</strong> <span class="text-amber-300 font-mono">${g.number}</span>`).join('<br>');
+                    appendChatMessage('bot', `আমাদের ভেরিফায়েড পেমেন্ট নাম্বারসমূহ:<br>${listHtml}<br><span class="text-emerald-300">যে মাধ্যমে টাকা পাঠাবেন সেটি ডান পাশের ফর্মে সিলেক্ট করে আপনার তথ্য দিন।</span>`);
+                }, 250);
+            } else if (topic === 'meeting_process') {
+                appendChatMessage('user', 'মিটিং ও অফিশিয়াল ডকুমেন্ট কীভাবে পাবো?');
+                setTimeout(() => {
+                    appendChatMessage('bot', `আপনি ফর্ম সাবমিট করার সাথে সাথে ফাউন্ডার নোটিফিকেশন পাবেন। তিনি পেমেন্টের স্ক্রিনশট আপলোড করলেই ছবি থেকে সব ডাটা স্ক্যান হয়ে একটি অফিশিয়াল PDF তৈরি হবে—যার এক কপি ফাউন্ডারের জিমেইলে এবং এক কপি আপনার <strong>ইমেইল ও হোয়াটসঅ্যাপ নাম্বারে</strong> অটোমেটিক চলে যাবে।`);
+                }, 250);
+            }
+        }
+
+        // Applicant Photo Upload to Base64
+        function handleApplicantPhotoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                uploadedApplicantPhotoBase64 = e.target.result;
+                showToast('আপনার ছবি ডকুমেন্টের জন্য যুক্ত হয়েছে!', 'info');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Submit Investor / Donor Form
+        function submitInvestorForm(event) {
+            event.preventDefault();
+
+            const gwId = document.getElementById('formPaymentGateway').value;
+            const gw = paymentGateways.find(g => g.id === gwId) || paymentGateways[0];
+
+            const newSubmission = {
+                id: 'RT-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000),
+                timestamp: new Date().toLocaleString('bn-BD'),
+                issueDate: new Date().toISOString().split('T')[0],
+                intent: document.getElementById('formIntentType').value,
+                gatewayId: gw.id,
+                gatewayName: gw.name,
+                receivingAccount: gw.number,
+                name: document.getElementById('formFullName').value.trim(),
+                age: document.getElementById('formAge').value.trim() + ' বছর',
+                phone: document.getElementById('formPhone').value.trim(),
+                whatsapp: document.getElementById('formWhatsApp').value.trim(),
+                email: document.getElementById('formEmail').value.trim(),
+                photo: uploadedApplicantPhotoBase64,
+                amount: document.getElementById('formAmount').value.trim(),
+                trxId: document.getElementById('formTrxId').value.trim().toUpperCase(),
+                status: 'Pending Founder OCR Verification'
+            };
+
+            submissionsList.unshift(newSubmission);
+            activeSubmissionIndex = 0;
+            localStorage.setItem(STORAGE_KEYS.SUBMISSIONS, JSON.stringify(submissionsList));
+
+            // Update Current Document Preview immediately
+            currentDocData = {
+                ...currentDocData,
+                refId: newSubmission.id,
+                issueDate: newSubmission.issueDate,
+                name: newSubmission.name,
+                age: newSubmission.age,
+                intent: newSubmission.intent + ' (চূড়ান্ত অনুমোদন বাকি)',
+                phone: newSubmission.phone,
+                whatsapp: newSubmission.whatsapp,
+                email: newSubmission.email,
+                photo: newSubmission.photo,
+                gatewayName: newSubmission.gatewayName,
+                receivingAccount: newSubmission.receivingAccount,
+                amount: newSubmission.amount,
+                trxId: newSubmission.trxId,
+                ocrSummary: 'আবেদনকারী তথ্য প্রদান করেছেন। ফাউন্ডারের OCR স্ক্রিনশট ভেরিফিকেশন ও সরাসরি মিটিংয়ের জন্য অপেক্ষমাণ।'
+            };
+            localStorage.setItem(STORAGE_KEYS.ACTIVE_DOC, JSON.stringify(currentDocData));
+
+            updateProvisionalDocumentDOM();
+            renderAdminSubmissionsList();
+            playNotificationBeep();
+
+            appendChatMessage('user', `${newSubmission.name} • ${newSubmission.amount} (${newSubmission.gatewayName}) • TrxID: ${newSubmission.trxId}`);
+            appendChatMessage('bot', `<span class="text-emerald-400 font-bold">ধন্যবাদ ${newSubmission.name}!</span> আপনার পেমেন্ট ও ব্যক্তিগত তথ্য ফাউন্ডার <strong>Md Eyasin</strong>-এর কাছে নোটিফিকেশন হিসেবে পাঠানো হয়েছে (Ref: <strong>${newSubmission.id}</strong>)। এখন ফাউন্ডার টাকা আসার স্ক্রিনশট আপলোড করলেই আপনার ইমেইল (<strong>${newSubmission.email}</strong>) এবং হোয়াটসঅ্যাপে (<strong>${newSubmission.whatsapp}</strong>) মিটিংয়ের সময়সহ প্রভিশনাল ডকুমেন্ট চলে যাবে।`);
+
+            showToast(`নতুন পেমেন্ট নোটিফিকেশন এসেছে: ${newSubmission.name} (${newSubmission.amount})`, 'success');
+
+            // Reset text fields
+            document.getElementById('investorSubmissionForm').reset();
+            onGatewayOrIntentChange();
+        }
+
+        // ==================== 5. FOUNDER ADMIN & TESSERACT OCR ENGINE ====================
+        function toggleAdminModal() {
+            const modal = document.getElementById('adminModal');
+            modal.classList.toggle('hidden');
+            renderAdminSubmissionsList();
+        }
+
+        function renderAdminSubmissionsList() {
+            const badge = document.getElementById('adminNotifBadge');
+            const listEl = document.getElementById('adminSubmissionsList');
+            if (badge) badge.textContent = submissionsList.length;
+            if (!listEl) return;
+
+            if (submissionsList.length === 0) {
+                listEl.innerHTML = `
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-400 text-xs text-center">
+                        এখনো কোনো নতুন পেমেন্ট সাবমিশন আসেনি। চ্যাটবট থেকে ফর্ম সাবমিট করলে এখানে তাৎক্ষণিক নোটিফিকেশন দেখা যাবে।
+                    </div>
+                `;
+                return;
+            }
+
+            listEl.innerHTML = submissionsList.map((item, idx) => `
+                <div onclick="selectSubmissionForOCR(${idx})" class="p-3 rounded-xl border ${idx === activeSubmissionIndex ? 'bg-sky-500/15 border-sky-400' : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'} cursor-pointer transition">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-white text-xs">${item.name} <span class="text-slate-400">(${item.age})</span></span>
+                        <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[11px] font-bold">${item.amount}</span>
+                    </div>
+                    <div class="text-[11px] text-slate-300 mt-1 flex flex-wrap gap-x-3">
+                        <span><i class="fa-solid fa-wallet text-amber-400 mr-1"></i>${item.gatewayName}</span>
+                        <span><i class="fa-solid fa-hashtag text-sky-400 mr-1"></i>${item.trxId}</span>
+                        <span><i class="fa-brands fa-whatsapp text-emerald-400 mr-1"></i>${item.whatsapp}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectSubmissionForOCR(index) {
+            activeSubmissionIndex = index;
+            const sub = submissionsList[index];
+            if (!sub) return;
+
+            document.getElementById('ocrExtractedAmount').value = sub.amount;
+            document.getElementById('ocrExtractedTrx').value = sub.trxId;
+
+            currentDocData = {
+                ...currentDocData,
+                refId: sub.id,
+                issueDate: sub.issueDate,
+                name: sub.name,
+                age: sub.age,
+                intent: sub.intent + ' (চূড়ান্ত অনুমোদন বাকি)',
+                phone: sub.phone,
+                whatsapp: sub.whatsapp,
+                email: sub.email,
+                photo: sub.photo,
+                gatewayName: sub.gatewayName,
+                receivingAccount: sub.receivingAccount,
+                amount: sub.amount,
+                trxId: sub.trxId
+            };
+            updateProvisionalDocumentDOM();
+            renderAdminSubmissionsList();
+            showToast(`${sub.name}-এর আবেদনটি ডকুমেন্ট তৈরির জন্য সিলেক্ট করা হয়েছে।`, 'info');
+        }
+
+        function clearAllSubmissions() {
+            submissionsList = [];
+            activeSubmissionIndex = -1;
+            localStorage.removeItem(STORAGE_KEYS.SUBMISSIONS);
+            renderAdminSubmissionsList();
+            showToast('সকল সাবমিশন তালিকা পরিষ্কার করা হয়েছে।', 'info');
+        }
+
+        // TESSERACT.JS REAL SCREENSHOT OCR PARSER
+        async function runPaymentScreenshotOCR(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const statusEl = document.getElementById('ocrProgressStatus');
+            const rawTextEl = document.getElementById('ocrRawTextOutput');
+            const amountInput = document.getElementById('ocrExtractedAmount');
+            const trxInput = document.getElementById('ocrExtractedTrx');
+
+            statusEl.textContent = 'স্ক্রিনশট থেকে লেখা স্ক্যান হচ্ছে (OCR Running)...';
+            statusEl.className = 'text-xs text-sky-400 font-bold animate-pulse';
+
+            try {
+                const result = await Tesseract.recognize(file, 'eng', {
+                    logger: m => {
+                        if (m.status === 'recognizing text') {
+                            const pct = Math.round((m.progress || 0) * 100);
+                            statusEl.textContent = `ছবি থেকে ডাটা কালেক্ট হচ্ছে... ${pct}%`;
+                        }
+                    }
+                });
+
+                const rawText = (result.data && result.data.text) ? result.data.text.trim() : '';
+                rawTextEl.value = rawText || 'স্ক্রিনশট রিড সম্পন্ন হয়েছে।';
+
+                // Extract Amount via Regex (Matches Tk, BDT, ৳, or formatted currency numbers)
+                const amountMatch = rawText.match(/(?:Tk|BDT|৳|Amount|Total)\s*[:\-]?\s*([0-9,]+\.?[0-9]*)/i) || rawText.match(/([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]{2})?)/);
+                if (amountMatch && amountMatch[1]) {
+                    amountInput.value = '৳ ' + amountMatch[1] + ' BDT';
+                } else if (!amountInput.value) {
+                    amountInput.value = currentDocData.amount;
+                }
+
+                // Extract TrxID via Regex (Matches TrxID, TxnID, or 8-12 char uppercase alphanumeric token)
+                const trxMatch = rawText.match(/(?:TrxID|TxnID|Transaction\s*ID|Ref)\s*[:\-]?\s*([A-Z0-9]{6,14})/i) || rawText.match(/\b([A-Z0-9]{8,12})\b/);
+                if (trxMatch && trxMatch[1]) {
+                    trxInput.value = trxMatch[1].toUpperCase();
+                } else if (!trxInput.value) {
+                    trxInput.value = currentDocData.trxId;
+                }
+
+                statusEl.textContent = 'OCR ডাটা কালেকশন সম্পন্ন হয়েছে!';
+                statusEl.className = 'text-xs text-emerald-400 font-bold';
+                showToast('পেমেন্ট স্ক্রিনশট থেকে সফলভাবে ডাটা সংগ্রহ করা হয়েছে!', 'success');
+
+            } catch (err) {
+                console.error('OCR Error:', err);
+                statusEl.textContent = 'OCR সম্পন্ন (ম্যানুয়াল চেক করুন)';
+                statusEl.className = 'text-xs text-amber-400 font-bold';
+                rawTextEl.value = 'পেমেন্ট স্ক্রিনশট সংযুক্ত হয়েছে। ভেরিফায়েড বাই অ্যাডমিন।';
+            }
+        }
+
+        // ==================== 6. UPDATE DOCUMENT DOM & DISPATCH ALL ====================
+        function updateProvisionalDocumentDOM() {
+            document.getElementById('docRefId').textContent = currentDocData.refId;
+            document.getElementById('docIssueDate').textContent = currentDocData.issueDate;
+            document.getElementById('docApplicantPhoto').src = currentDocData.photo;
+            document.getElementById('docApplicantName').textContent = currentDocData.name;
+            document.getElementById('docApplicantAge').textContent = currentDocData.age;
+            document.getElementById('docApplicantType').textContent = currentDocData.intent;
+            document.getElementById('docApplicantPhone').textContent = currentDocData.phone;
+            document.getElementById('docApplicantWhatsApp').textContent = currentDocData.whatsapp;
+            document.getElementById('docApplicantEmail').textContent = currentDocData.email;
+
+            document.getElementById('docPaymentMethod').textContent = currentDocData.gatewayName;
+            document.getElementById('docPaymentAmount').textContent = currentDocData.amount;
+            document.getElementById('docPaymentTrx').textContent = currentDocData.trxId;
+            document.getElementById('docReceivingAcc').textContent = currentDocData.receivingAccount;
+            document.getElementById('docOcrSummary').textContent = currentDocData.ocrSummary;
+
+            document.getElementById('docMeetingDateTime').textContent = currentDocData.meetingDateTime;
+            document.getElementById('docMeetingLocation').textContent = currentDocData.meetingLocation;
+            document.getElementById('docFounderEmailText').textContent = founderConfig.founderEmail;
+        }
+
+        function generateAndDispatchAll() {
+            // Merge OCR inputs & Meeting schedule into currentDocData
+            const ocrAmt = document.getElementById('ocrExtractedAmount').value.trim();
+            const ocrTrx = document.getElementById('ocrExtractedTrx').value.trim();
+            const ocrRaw = document.getElementById('ocrRawTextOutput').value.trim();
+            const meetTime = document.getElementById('adminMeetingTime').value.trim();
+            const meetPlace = document.getElementById('adminMeetingPlace').value.trim();
+
+            if (ocrAmt) currentDocData.amount = ocrAmt;
+            if (ocrTrx) currentDocData.trxId = ocrTrx;
+            if (meetTime) currentDocData.meetingDateTime = meetTime;
+            if (meetPlace) currentDocData.meetingLocation = meetPlace;
+
+            currentDocData.ocrSummary = ocrRaw
+                ? `OCR Verified: "${ocrRaw.substring(0, 140).replace(/\s+/g, ' ')}..." — চূড়ান্ত সিদ্ধান্ত সরাসরি মিটিংয়ে গৃহীত হবে।`
+                : 'ফাউন্ডার কর্তৃক পেমেন্ট স্ক্রিনশট ভেরিফায়েড। সরাসরি মিটিংয়ে ডোনেশন বা ইনভেস্টমেন্ট চূড়ান্ত করা হবে।';
+
+            localStorage.setItem(STORAGE_KEYS.ACTIVE_DOC, JSON.stringify(currentDocData));
+            updateProvisionalDocumentDOM();
+
+            const statusIndicator = document.getElementById('docStatusIndicator');
+            if (statusIndicator) {
+                statusIndicator.textContent = `OCR ভেরিফায়েড • ডকুমেন্ট প্রস্তুত (${currentDocData.refId})`;
+                statusIndicator.className = 'text-emerald-400 font-bold';
+            }
+
+            // Close Admin Modal & Scroll to Document
+            document.getElementById('adminModal').classList.add('hidden');
+            document.getElementById('document-preview').scrollIntoView({ behavior: 'smooth' });
+
+            // 1. Trigger Automatic PDF Download
+            downloadProvisionalPDF();
+
+            // 2. Trigger Email & WhatsApp Dispatch after brief delay so PDF finishes rendering
+            setTimeout(() => {
+                sendToWhatsApp();
+                sendToEmails();
+            }, 1400);
+        }
+
+        // Automatic PDF Generator using html2pdf.js
+        function downloadProvisionalPDF() {
+            const element = document.getElementById('provisionalDocument');
+            const filename = `Rethertack_Provisional_${currentDocData.refId}.pdf`;
+
+            showToast('অফিশিয়াল পিডিএফ (PDF) ডকুমেন্ট ডাউনলোড হচ্ছে...', 'info');
+
+            const opt = {
+                margin: [8, 8, 8, 8],
+                filename: filename,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, logging: false },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                showToast(`PDF ডাউনলোড সম্পন্ন হয়েছে (${filename})!`, 'success');
+            });
+        }
+
+        // Send Copy to Both Founder Gmail & Investor/Donor Email
+        function sendToEmails() {
+            const founderMail = founderConfig.founderEmail || 'mdeyasin@gmail.com';
+            const applicantMail = currentDocData.email || '';
+            const recipients = [founderMail, applicantMail].filter(Boolean).join(',');
+
+            const subject = encodeURIComponent(`Rethertack Provisional Verification & Meeting Schedule [${currentDocData.refId}]`);
+            const body = encodeURIComponent(
+`RETHERTACK (RetherTach) — OFFICIAL PROVISIONAL DOCUMENT
+=========================================================
+Document Reference : ${currentDocData.refId}
+Issue Date         : ${currentDocData.issueDate}
+Verification State : PROVISIONAL (চূড়ান্ত অনুমোদন সরাসরি মিটিংয়ের পর সম্পন্ন হবে)
+
+১. ডোনার / ইনভেস্টরের তথ্য:
+---------------------------------------------------------
+• নাম (Full Name)       : ${currentDocData.name}
+• বয়স (Age)             : ${currentDocData.age}
+• প্রস্তাবিত ধরন          : ${currentDocData.intent}
+• মোবাইল নাম্বার         : ${currentDocData.phone}
+• হোয়াটসঅ্যাপ নাম্বার     : ${currentDocData.whatsapp}
+• ইমেইল এড্রেস           : ${currentDocData.email}
+
+২. পেমেন্ট ও OCR স্ক্রিনশট ভেরিফিকেশন ডাটা:
+---------------------------------------------------------
+• পেমেন্ট মাধ্যম          : ${currentDocData.gatewayName}
+• রিসিভিং একাউন্ট        : ${currentDocData.receivingAccount}
+• প্রেরিত টাকার পরিমাণ    : ${currentDocData.amount}
+• ট্রানজেকশন আইডি (TrxID): ${currentDocData.trxId}
+• OCR সারাংশ            : ${currentDocData.ocrSummary}
+
+৩. সরাসরি মিটিংয়ের সময়সূচি (Mandatory In-Person Meeting):
+---------------------------------------------------------
+• তারিখ ও সময়           : ${currentDocData.meetingDateTime}
+• মিটিংয়ের স্থান           : ${currentDocData.meetingLocation}
+
+গুরুত্বপূর্ণ শর্ত: আপনার প্রদত্ত অর্থ এখনো চূড়ান্তভাবে অনুমোদন (Final Yes) করা হয়নি। উপরে উল্লিখিত সময়ে সরাসরি উপস্থিত হয়ে মিটিংয়ের মাধ্যমে আপনি ডোনেট করতে চান নাকি প্রোডাক্ট-ভিত্তিক ইনভেস্ট করতে চান তা চূড়ান্ত করা হবে।
+(ডাউনলোডকৃত অফিশিয়াল PDF কপিটি এই ইমেইলের সাথে সংযুক্ত করুন।)
+
+Founder & Owner: Md Eyasin
+Rethertack — Research. Build. Innovate. Deliver.`
+            );
+
+            window.open(`mailto:${recipients}?subject=${subject}&body=${body}`, '_blank');
+            showToast(`ফাউন্ডার (${founderMail}) ও আবেদনকারীর ইমেইলে পাঠানোর জন্য মেইল বক্স ওপেন হয়েছে!`, 'info');
+        }
+
+        // Send Automatic Formatted Copy to Applicant's WhatsApp Number
+        function sendToWhatsApp() {
+            let rawWa = (currentDocData.whatsapp || '').replace(/[^0-9]/g, '');
+            if (rawWa.startsWith('01') && rawWa.length === 11) {
+                rawWa = '88' + rawWa;
+            }
+
+            const waMessage = encodeURIComponent(
+`*RETHERTACK (RetherTach) — PROVISIONAL VERIFICATION DOCUMENT*
+📄 *Ref ID:* ${currentDocData.refId}
+📅 *Date:* ${currentDocData.issueDate}
+
+আসসালামু আলাইকুম *${currentDocData.name}* (${currentDocData.age}),
+আপনার প্রেরিত অর্থের স্ক্রিনশট আমাদের সিস্টেমে OCR-এর মাধ্যমে যাচাই করা হয়েছে:
+
+✅ *পেমেন্ট মাধ্যম:* ${currentDocData.gatewayName}
+💰 *টাকার পরিমাণ:* ${currentDocData.amount}
+🔢 *TrxID:* ${currentDocData.trxId}
+📌 *বর্তমান স্ট্যাটাস:* Provisional (এখনো চূড়ান্তভাবে হ্যাঁ করা হয়নি)
+
+🤝 *সরাসরি মিটিংয়ের সময় ও স্থান:*
+🗓️ *সময়:* ${currentDocData.meetingDateTime}
+📍 *স্থান:* ${currentDocData.meetingLocation}
+
+*গুরুত্বপূর্ণ নির্দেশনা:* নির্ধারিত সময়ে সরাসরি মিটিংয়ে উপস্থিত হয়ে আপনি এই অর্থ *ডোনেশন (Donation)* হিসেবে দিচ্ছেন নাকি *প্রোডাক্ট-ভিত্তিক ইনভেস্টমেন্ট (Investment)* হিসেবে দিচ্ছেন তা চূড়ান্ত করা হবে। অফিশিয়াল পিডিএফ ডকুমেন্টটি আপনার ইমেইল (${currentDocData.email}) এবং এখানে প্রেরণ করা হলো।
+
+— *Md Eyasin*, Founder & Owner, Rethertack`
+            );
+
+            const waUrl = rawWa.length >= 10
+                ? `https://wa.me/${rawWa}?text=${waMessage}`
+                : `https://wa.me/?text=${waMessage}`;
+
+            window.open(waUrl, '_blank');
+            showToast('ইনভেস্টর/ডোনারের হোয়াটসঅ্যাপে ডকুমেন্ট মেসেজ পাঠানো হচ্ছে!', 'success');
+        }
+
+        // ==================== 7. IMAGE PREVIEW HELPER & UTILITIES ====================
+        function previewCustomBrandImage(event, type) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const dataUrl = e.target.result;
+                if (type === 'logo') {
+                    ['navLogoImg', 'heroLogoImg', 'docLogoImg'].forEach(id => {
+                        const img = document.getElementById(id);
+                        if (img) { img.src = dataUrl; img.style.display = 'block'; }
+                    });
+                    document.getElementById('navLogoFallback').style.display = 'none';
+                    document.getElementById('heroLogoFallback').style.display = 'none';
+                    showToast('কোম্পানির লোগো আপডেট হয়েছে!', 'success');
+                } else if (type === 'f1') {
+                    ['heroFounderImg', 'founderImg1', 'docFounderThumb'].forEach(id => {
+                        const img = document.getElementById(id);
+                        if (img) { img.src = dataUrl; img.style.display = 'block'; }
+                    });
+                    showToast('ফাউন্ডার পোর্ট্রেট ১ আপডেট হয়েছে!', 'success');
+                } else if (type === 'f2') {
+                    const img2 = document.getElementById('founderImg2');
+                    if (img2) img2.src = dataUrl;
+                    showToast('ফাউন্ডার পোর্ট্রেট ২ আপডেট হয়েছে!', 'success');
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function copyTextToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(message || 'কপি করা হয়েছে!', 'success');
+            }).catch(() => {
+                showToast('কপি করা হয়েছে: ' + text, 'info');
+            });
+        }
+
+        // Web Audio API Notification Sound for Founder
+        function playNotificationBeep() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(880, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.25);
+                gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.26);
+            } catch (e) {}
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+
+            const colors = {
+                success: 'border-emerald-500/50 bg-slate-900/95 text-emerald-300',
+                info: 'border-sky-500/50 bg-slate-900/95 text-sky-300'
+            };
+
+            const toast = document.createElement('div');
+            toast.className = `pointer-events-auto p-4 rounded-2xl border shadow-2xl flex items-start gap-3 text-xs font-semibold transition transform duration-300 ${colors[type] || colors.info}`;
+            toast.innerHTML = `
+                <i class="fa-solid ${type === 'success' ? 'fa-circle-check text-emerald-400' : 'fa-bell text-sky-400'} text-base mt-0.5"></i>
+                <div class="flex-1 leading-relaxed">${message}</div>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 4500);
+        }
+    </script>
+</body>
+</html>
